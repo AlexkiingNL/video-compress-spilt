@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+venv/
+
+# macOS
+.DS_Store
+
+# Media Files (Ignore input/output videos)
+*.mp4
+*.mov
+*.mkv
+compressed/
+output/
