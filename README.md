@@ -35,6 +35,7 @@ It employs a **"Quality-First" Smart Strategy**:
 ```bash
 brew install ffmpeg
 pip install -r requirements.txt
+
 📖 Usage
 Basic Compression
 Compress a single file or a directory of videos to the default ./compressed folder.
@@ -47,5 +48,27 @@ python3 smart_video_compressor_splitter.py ./movie.mp4 -s 100
 Custom Output Directory
 Bash
 python3 smart_video_compressor_splitter.py ./input -o ./final_output
+
+## 🐧 For Windows / Linux Users (Experimental)
+
+This tool is natively optimized for macOS. However, the core logic (FFmpeg + Python) is cross-platform. If you wish to run this on Windows (NVIDIA GPU) or Linux, you can manually modify the source code:
+
+1.  Open `smart_video_compressor_splitter.py`.
+2.  Search for the `CompressorEngine` class.
+3.  Replace the encoder `hevc_videotoolbox` with one supported by your hardware:
+    * **NVIDIA GPU**: `hevc_nvenc` or `h264_nvenc`
+    * **CPU (Universal)**: `libx264` (Slower, but works everywhere)
+
+```python
+# Example modification for CPU-only (Universal compatibility)
+cmd = [
+    "ffmpeg", "-y", "-i", str(input_path),
+    ...
+    "-c:v", "libx264",  # <--- Change this line
+    ...
+]
+
+Note: Windows users may also need to ensure ffmpeg is added to their System PATH.
+
 📄 License
 This project is licensed under the MIT License. 
