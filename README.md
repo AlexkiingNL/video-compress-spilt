@@ -35,19 +35,29 @@ It employs a **"Quality-First" Smart Strategy**:
 ```bash
 brew install ffmpeg
 pip install -r requirements.txt
+```
 
-📖 Usage
-Basic Compression
+## 📖 Usage
+
+### Basic Compression
 Compress a single file or a directory of videos to the default ./compressed folder.
-Bash
+
+```Bash
 python3 smart_video_compressor_splitter.py ./my_videos/
-Custom Split Size
+```
+
+### Custom Split Size
 Compress and ensure no file exceeds 100MB.
-Bash
+
+```Bash
 python3 smart_video_compressor_splitter.py ./movie.mp4 -s 100
-Custom Output Directory
-Bash
+```
+
+### Custom Output Directory
+
+```Bash
 python3 smart_video_compressor_splitter.py ./input -o ./final_output
+```
 
 ## 🐧 For Windows / Linux Users (Experimental)
 
@@ -67,8 +77,9 @@ cmd = [
     "-c:v", "libx264",  # <--- Change this line
     ...
 ]
+```
 
-Note: Windows users may also need to ensure ffmpeg is added to their System PATH.
+> Note: Windows users may also need to ensure ffmpeg is added to their System PATH.
 
-📄 License
+## 📄 License
 This project is licensed under the MIT License. 
